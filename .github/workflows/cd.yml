@@ -6,6 +6,7 @@ on:
 
 env:
   AWS_REGION: "us-east-1"
+  AWS_BUCKET: dlis-beer-management-panal
   NODE_VERSION: 16.x
 
 jobs:
@@ -31,4 +32,4 @@ jobs:
             aws-region: ${{ env.AWS_REGION }}
 
       - name: Upload package to S3 bucket
-        run: aws s3 cp ./build/* s3://${{ secrets.AWS_BUCKET }}/
+        run: aws s3 cp build/* s3://${{ env.AWS_BUCKET }}/
