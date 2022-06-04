@@ -14,10 +14,10 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
-      - name: Use Node.js $NODE_VERSION
+      - name: Use Node.js ${NODE_VERSION}
         uses: actions/setup-node@v3
         with:
-          node-version: $NODE_VERSION
+          node-version: ${NODE_VERSION}
           cache: 'npm'
       - run: npm ci
       - run: npm run build --if-present
@@ -27,6 +27,6 @@ jobs:
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: "${{ env.AWS_REGION }}"
+          aws-region: "${AWS_REGION}"
       - name: Upload package to S3 bucket
         run: aws s3 cp build/* s3://${{ secrets.AWS_BUCKET }}/
