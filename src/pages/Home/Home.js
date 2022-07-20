@@ -5,7 +5,7 @@ export const Home = () => {
     return (
         <Container>
             <Image src={LisBeerLogo}/>
-            <h1>LisBeer</h1>
+            <h1>LisBeer - Aulas</h1>
         </Container>
     )
 }
